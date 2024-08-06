@@ -1,0 +1,302 @@
+/* Contenedor de la galería */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre las imágenes */
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Elementos individuales de la galería */
+.gallery-item {
+    position: relative;
+    width: calc(25% - 10px); /* Ajusta el ancho según el número de columnas */
+    box-sizing: border-box;
+    overflow: hidden; /* Asegura que los efectos de zoom no se desborden */
+    transition: transform 0.3s ease; /* Transición suave para el efecto de zoom */
+}
+
+/* Imágenes */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease; /* Transición suave */
+}
+
+/* Animación al pasar el cursor */
+.gallery-item:hover img {
+    transform: scale(1.1) rotate(2deg); /* Zoom y ligera rotación */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta la sombra */
+    filter: brightness(1.1); /* Aumenta el brillo */
+}
+
+/* Texto de la imagen */
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0 0 8px 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: background 0.3s ease; /* Transición para el fondo */
+}
+
+/* Cambiar el fondo de la leyenda al pasar el cursor */
+.gallery-item:hover .caption {
+    background: rgba(0, 0, 0, 0.9); /* Fondo más oscuro para destacar el texto */
+}
+
+/* Responsividad */
+@media (max-width: 800px) {
+    .gallery-item {
+        width: calc(33.333% - 10px); /* Tres columnas en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 500px) {
+    .gallery-item {
+        width: calc(50% - 10px); /* Dos columnas en pantallas muy pequeñas */
+    }
+}
+
+@media (max-width: 300px) {
+    .gallery-item {
+        width: 100%; /* Una columna en pantallas estrechas */
+    }
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(0deg, hsla(0, 0%, 91%, 1) 53%, hsla(42, 15%, 60%, 1) 90%, hsla(42, 15%, 60%, 1) 100%);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #000;
+    color: #eee8aa;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    transition: all 0.3s ease-in-out;
+}
+  
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+  
+nav ul li {
+    margin: 0 20px;
+}
+  
+nav ul li a {
+    color: #eee8aa;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+  
+nav ul li a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #f6f6f6;
+}
+  
+/* Hamburger Menu Icon for Mobile */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: 15px;
+}
+  
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #eee8aa;
+    margin: 4px 0;
+    transition: all 0.3s ease-in-out;
+}
+  
+/* Hide Navigation on Mobile by Default */
+nav ul {
+    display: flex;
+}
+  
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+    }
+  
+    nav ul.active {
+        display: flex;
+    }
+  
+    nav ul li {
+        margin: 10px 0;
+    }
+  
+    nav ul li a {
+        font-size: 1rem;
+        color: #eee8aa;
+    }
+  
+    .hamburger {
+        display: flex;
+    }
+}
+  
+@media (max-width: 480px) {
+    header {
+        padding: 0 10px;
+        height: 50px;
+    }
+  
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+  
+    .hamburger div {
+        width: 20px;
+        height: 2px;
+    }
+}
+
+/* Estilos generales para el lightbox */
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0; /* Inicia como invisible */
+    transition: opacity 0.5s ease; /* Transición para la opacidad */
+}
+
+/* Mostrar lightbox al ser el objetivo */
+.lightbox:target {
+    display: flex; /* Cambia el display para mostrarlo */
+    opacity: 1; /* Opacidad completa */
+}
+
+/* Estilo para la imagen dentro del lightbox */
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+}
+
+/* Estilo para el botón de cierre */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Cambio de color al pasar el cursor sobre el botón de cierre */
+.lightbox-close:hover {
+    color: #f00;
+}
+
+
+.footer {
+    top: 400px;
+    position: relative;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+  
+.footer p {
+    color: white;
+}
+  
+@media (max-width: 768px) {
+    .privacy-policy {
+        padding: 60px 20px;
+        max-width: 90%;
+        margin: 20px auto;
+    }
+  
+    .privacy-policy h1 {
+        font-size: 2em;
+    }
+  
+    .privacy-policy h2 {
+        font-size: 1.5em;
+    }
+  
+    .privacy-policy p {
+        font-size: 1em;
+    }
+}
+  
+@media (max-width: 480px) {
+    .privacy-policy {
+        padding: 40px 15px;
+        max-width: 95%;
+        margin: 15px auto;
+    }
+  
+    .privacy-policy h1 {
+        font-size: 1.8em;
+    }
+  
+    .privacy-policy h2 {
+        font-size: 1.3em;
+    }
+  
+    .privacy-policy p {
+        font-size: 0.9em;
+    }
+  
+    .footer {
+        padding: 8px;
+    }
+}

@@ -1,0 +1,250 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Noto Sans", sans-serif;
+    background: linear-gradient(
+      0deg,
+      hsla(0, 0%, 91%, 1) 53%,
+      hsla(42, 15%, 60%, 1) 90%,
+      hsla(42, 15%, 60%, 1) 100%
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    scroll-behavior: smooth;
+  }
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #000;
+    color: #eee8aa;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin: 0 20px;
+  }
+  
+  nav ul li a {
+    color: #eee8aa;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  nav ul li a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #f6f6f6;
+  }
+  
+  /* Hamburger Menu Icon for Mobile */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: 15px;
+  }
+  
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #eee8aa;
+    margin: 4px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Hide Navigation on Mobile by Default */
+  nav ul {
+    display: flex;
+  }
+  
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 60px;
+      width: 100%;
+      left: 0;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
+  
+    nav ul.active {
+      display: flex;
+    }
+  
+    nav ul li {
+      margin: 10px 0;
+    }
+  
+    nav ul li a {
+      font-size: 1rem;
+      color: #eee8aa;
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header {
+      padding: 0 10px;
+      height: 50px;
+    }
+  
+    nav ul li a {
+      font-size: 0.9rem;
+    }
+  
+    .hamburger div {
+      width: 20px;
+      height: 2px;
+    }
+  }
+
+  .box1{
+    position: relative;
+    top:40px;
+    text-align: center;
+    margin: 1.5em auto;
+    padding: 2em;
+    background: rgba(234, 234, 234, 0.789);
+    backdrop-filter: blur(15px);
+    color: #69625e;
+    border-radius: 8px;
+    box-shadow: 7px 4px 12px rgba(0, 0, 0, 0.61);
+    max-width: 90%;
+    box-sizing: border-box;
+  }
+
+  .box {
+    text-align: center;
+    margin: 1.5em auto;
+    padding: 2em;
+    background: rgba(234, 234, 234, 0.789);
+    backdrop-filter: blur(15px);
+    color: #69625e;
+    border-radius: 8px;
+    box-shadow: 7px 4px 12px rgba(0, 0, 0, 0.61);
+    max-width: 90%;
+    box-sizing: border-box;
+  }
+  
+  .box-title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .box-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .box-list li {
+    margin: 1.5em 0;
+  }
+  
+  .box-item {
+    display: block;
+    font-size: 1.5em;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .box-description {
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 0.5em;
+  }
+  
+
+  .footer {
+    top: 400px;
+    position: relative;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+  
+.footer p {
+    color: white;
+}
+  
+@media (max-width: 768px) {
+    .privacy-policy {
+        padding: 60px 20px;
+        max-width: 90%;
+        margin: 20px auto;
+    }
+  
+    .privacy-policy h1 {
+        font-size: 2em;
+    }
+  
+    .privacy-policy h2 {
+        font-size: 1.5em;
+    }
+  
+    .privacy-policy p {
+        font-size: 1em;
+    }
+}
+  
+@media (max-width: 480px) {
+    .privacy-policy {
+        padding: 40px 15px;
+        max-width: 95%;
+        margin: 15px auto;
+    }
+  
+    .privacy-policy h1 {
+        font-size: 1.8em;
+    }
+  
+    .privacy-policy h2 {
+        font-size: 1.3em;
+    }
+  
+    .privacy-policy p {
+        font-size: 0.9em;
+    }
+  
+    .footer {
+        padding: 8px;
+    }
+}
