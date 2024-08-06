@@ -753,7 +753,7 @@ top: 140px;
   /* Estilos para el contenedor del mapa y texto */
 .container-map {
   position: relative;
-  top:40px;
+  top:20px;
   bottom: 60px;
   display: flex; /* Usa flexbox para alinear los elementos en una fila */
   align-items: center; /* Centra verticalmente los elementos en la fila */
